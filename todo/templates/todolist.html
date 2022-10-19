@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="card"> 
+       <div class="card-body p-4 "> 
+        <h3 class="mb-5 text-center">Todo List</h3> 
+        <form action="{{ url_for('views.todo_list') }}" method="POST" class="d-flex justify-content-center align-items-center mb-4"> 
+        	<textarea name="task" class="form-control" placeholder="What do you need to do today?"></textarea> 
+        	<button type="submit" class="btn custom_bg_color btn-lg ms-2">Add</button> 
+        </form> 
+        	<ul class="list-group"> 
+ 		   {% for task in current_user.todos %}
+            	<li class="list-group-item list-group-item-action d-flex align-items-center border-0 mb-2 rounded" style="background-color: #f4f6f7;"> 
+          	  <div class="w-100"> 
+                	<div class="d-flex">
+            			<small class="mb-1">{{ task.date_posted }}</small>
+             		   <div class="ms-auto">
+             		   {% set collapse_id = "collapse"~task.id %}
+             		   {% set href = "#"~ collapse_id %}
+                	    <a onclick="edit_task({{ task.id }})" class="custom-color me-2" data-bs-toggle="collapse" href="{{ href }}"> 
+            				<i class="fas fa-pencil-alt"></i> 
+            			</a>
+             		   <a class="custom-color" href="{{ url_for('views.delete_task', todo_id= task.id) }}">
+                			<i class="fas fa-trash-alt"></i> 
+                		</a> 
+                	</div>
+          	  </div>
+          	  	<form action="{{ url_for('views.update_task') }}" method="POST">
+          	  		<input name="task_id" type="hidden" value="{{ task.id }}">
+	           	 	<input name="task" type="text" id="{{ task.id }}" class="custom-text-field form-control-plaintext mb-2" value="{{ task.text }}" disabled>
+	           	 	<div class="collapse" id="{{ collapse_id }}">
+	           	 		<button type="submit" class="btn btn-primary btn-sm">Done</button>
+	           	 	</div>
+           	 	</form>
+          	  </li> 
+            {% endfor %}
+        	</ul> 
+       </div> 
+   </div> 
+{% endblock %}
