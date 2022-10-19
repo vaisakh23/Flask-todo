@@ -6,18 +6,21 @@ Simple to do web application using Flask and SQLite database.
 
 ## Installation
 
-clone:
+clone repo:
 ```
-$ git clone https://github.com/greyli/todoism.git
+$ git clone https://github.com/vaisakh23/Flask-todo.git
 ```
 install dependencies:
 ```
 $ pip install -r requirements.txt
 ```
-run:
+run the app:
 ```
 $ python run.py
-* Running on http://127.0.0.1:5000/
+```
+open browser:
+```
+http://127.0.0.1:5000/
 ```
 
 [license-url]: https://github.com/rtzll/flask-todolist/blob/master/LICENSE
