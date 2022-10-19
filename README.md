@@ -2,7 +2,7 @@
 
 [![License][license-image]][license-url]
 
-Simple Flask Todo App using SQLAlchemy and SQLite database.
+Simple to do web application using Flask and SQLite database.
 
 ## Installation
 
