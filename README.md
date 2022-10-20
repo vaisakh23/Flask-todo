@@ -4,6 +4,8 @@
 
 Simple to do web application using Flask and SQLite database.
 
+Demo: https://flask-todolist.herokuapp.com/
+
 ## Installation
 
 clone repo:
